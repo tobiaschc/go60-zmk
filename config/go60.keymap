@@ -196,25 +196,6 @@
             hold-trigger-key-positions = < 25 26 27 28 49 50 51 52 54 55 56 57 58 59 13 14 15 16 17 29 37 38 39 40 41  >;
         };
 
-        mmv_fast: mouse_move_fast {
-            compatible = "zmk,behavior-mouse-move";
-            label = "MMV_FAST";
-            time-to-max-speed-ms = <60>;
-            accel-interval-ms = <8>;
-            move-scale = <2>;
-            delay-ms = <0>;
-        };
-
-
-       msc_fast: mouse_scroll_fast {
-            compatible = "zmk,behavior-mouse-scroll";
-            label = "msc_FAST";
-            scroll-interval-ms = <20>;
-            scroll-scale = <2>;
-            delay-ms = <0>;
-        };
-
-
     };
 
     macros {
@@ -252,6 +233,7 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 3>;
         };
+      };
 
       combos {
         compatible = "zmk,combos";
@@ -268,7 +250,6 @@
             bindings = <&mo LAYER_Navi>;
           };
         };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -302,8 +283,8 @@
             bindings = <
             &kp C_BRI_DN  &kp C_BRI_UP  &none   &kp TILDE    &kp C_PREV   &kp C_PP                                      &kp C_PP    &kp C_NEXT &kp UNDER   &kp C_VOL_UP  &kp C_VOL_DN  &kp C_MUTE
             &none  &none  &none  &none  &none  &none                                                                       &none  &none  &none  &none  &none  &none
-            &msc SCRL_LEFT  &msc SCRL_DOWN  &mkp MB1   &mmv MOVE_LEFT  &mmv MOVE_RIGHT  &none                                        &none  &mmv MOVE_DOWN &mmv MOVE_UP  &mkp MB2 &msc SCRL_UP  &msc SCRL_LEFT
-            &msc_fast SCRL_LEFT  &msc_fast SCRL_DOWN &mkp MB1 &mmv_fast MOVE_LEFT  &mmv_fast MOVE_RIGHT &none                      &none  &mmv_fast MOVE_DOWN  &mmv_fast MOVE_UP  &mkp MB2 &msc_fast SCRL_UP &msc_fast SCRL_LEFT
+            &msc SCRL_LEFT  &msc SCRL_UP  &mkp MB1   &mmv MOVE_X(-500)  &mmv MOVE_X(500)  &none                                        &none  &mmv MOVE_Y(500)  &mmv MOVE_Y(-500)  &mkp MB2 &msc SCRL_DOWN  &msc SCRL_RIGHT
+            &none &none &mkp MB1 &mmv MOVE_X(-1200)  &mmv MOVE_X(1200) &none                                                  &none  &mmv MOVE_Y(1200)  &mmv MOVE_Y(-1200)  &mkp MB2 &none &none
  
                                 &none   &none  &none                                                                      &none  &none  &none
 
